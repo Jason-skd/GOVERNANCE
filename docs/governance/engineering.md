@@ -86,5 +86,7 @@ comments.
   non-public contracts are documented when names and code are insufficient.
 - **G049** Explanatory comments record reasons, constraints, or non-obvious
   tradeoffs rather than narrating clear code.
+- **G064** Code is organized into logical blocks, each introduced by a
+  `// === verb-objective phrase ===` header that states what the block does.
 - **G050** Comments describe current behavior only, not issue history, pull
   requests, governance clauses, migrations, or speculative future work.
