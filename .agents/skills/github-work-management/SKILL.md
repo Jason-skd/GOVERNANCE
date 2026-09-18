@@ -9,8 +9,7 @@ Inspect the target repository governance and the seed definitions under
 `seeds/github/`. Verify authentication and repository identity, then audit the
 current labels, milestones, issue forms, and pull-request template without
 mutation. Use `scripts/audit-labels.sh OWNER/REPO LABELS_YML` to compare labels
-when `gh`, `jq`, and a YAML-capable `yq` are available, or perform the same
-read-only comparison with available tools.
+through authenticated `gh` reads and YAML parsing managed by `uv`.
 
 Report the exact additions, updates, conflicts, and removals proposed. Obtain
 explicit user authorization naming the target repository and remote action

@@ -9,14 +9,31 @@ fi
 repo=$1
 labels_file=$2
 command -v gh >/dev/null
-command -v jq >/dev/null
-command -v yq >/dev/null
+command -v uv >/dev/null
 
 expected=$(mktemp)
 actual=$(mktemp)
 trap 'rm -f "$expected" "$actual"' EXIT
 
-yq -o=json '.labels' "$labels_file" | jq -S 'map({name, color: (.color | ascii_upcase), description}) | sort_by(.name)' > "$expected"
-gh api "repos/$repo/labels?per_page=100" | jq -S 'map({name, color: (.color | ascii_upcase), description}) | sort_by(.name)' > "$actual"
+uv run --with pyyaml python -c '
+import json, sys, yaml
+data = yaml.safe_load(open(sys.argv[1]))
+print(json.dumps(sorted(
+    ({"name": item["name"], "color": item["color"].upper(), "description": item["description"]} for item in data["labels"]),
+    key=lambda item: item["name"],
+)))
+' "$labels_file" > "$expected"
+gh api "repos/$repo/labels?per_page=100" > "$actual"
 
-jq -n --slurpfile expected "$expected" --slurpfile actual "$actual" '{missing: ($expected[0] - $actual[0]), unexpected: ($actual[0] - $expected[0])}'
+uv run python -c '
+import json, sys
+expected = json.load(open(sys.argv[1]))
+actual = [
+    {"name": item["name"], "color": item["color"].upper(), "description": item.get("description")}
+    for item in json.load(open(sys.argv[2]))
+]
+print(json.dumps({
+    "missing": [item for item in expected if item not in actual],
+    "unexpected": [item for item in actual if item not in expected],
+}, indent=2, sort_keys=True))
+' "$expected" "$actual"
