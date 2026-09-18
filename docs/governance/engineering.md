@@ -16,9 +16,13 @@ comments.
   reader, writer, or explicitly named owner.
 - **G023** Keys, constraints, and operations follow real queries and invariants
   rather than a generic CRUD shape.
-- **G024** Structural correctness is enforced by the most authoritative layer
-  that can express it; other layers do not duplicate its constraints or side
-  effects.
+- **G024** Data integrity and structural correctness are enforced by the most
+  authoritative schema, type, or contract layer that can express each
+  invariant—for example, database keys, constraints, foreign keys, checks, and
+  database-owned triggers, or non-database types, schemas, and protocol
+  definitions. Business code may provide earlier error reporting, but does not
+  replace authoritative enforcement or rely on callers repeating template
+  logic.
 - **G065** A data-model `struct` groups each field under the exact applicable
   header below, and each header appears if and only if at least one such field
   exists: `// === persistent 字段 ===` for directly persisted fields,
