@@ -1,0 +1,29 @@
+schema_version: 1
+labels:
+  - name: kind:direction
+    color: "5319E7"
+    description: Product direction that decomposes into leaf deliverables
+  - name: kind:deliverable
+    color: "1D76DB"
+    description: Leaf product or engineering outcome delivered by a pull request
+  - name: kind:governance
+    color: "6F42C1"
+    description: Repository policy or maintenance governance
+  - name: bug
+    color: "D73A4A"
+    description: Incorrect current behavior with reproducible evidence
+  - name: priority:p0
+    color: "B60205"
+    description: Immediate critical priority
+  - name: priority:p1
+    color: "D93F0B"
+    description: High priority
+  - name: priority:p2
+    color: "FBCA04"
+    description: Normal priority
+  - name: flow:blocked
+    color: "000000"
+    description: Waiting on a named dependency or decision
+  - name: flow:emergency
+    color: "B60205"
+    description: Emergency cross-repository handoff state

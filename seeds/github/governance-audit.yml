@@ -1,0 +1,19 @@
+name: Governance Audit
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check governance entry point
+        shell: bash
+        run: |
+          test -f AGENTS.md
+          echo "::notice::Replace this seed check with the repository governance audit command"
