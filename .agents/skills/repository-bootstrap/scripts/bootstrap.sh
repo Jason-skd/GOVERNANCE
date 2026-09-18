@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if (( $# < 2 )); then
-  echo "usage: bootstrap.sh SOURCE TARGET [PROFILE ...]" >&2
+if (( $# < 3 )); then
+  echo "usage: bootstrap.sh SOURCE TARGET PROFILE [PROFILE ...]" >&2
   exit 2
 fi
 
@@ -13,6 +13,7 @@ manifest="$source_root/managed-files.txt"
 
 test -f "$manifest"
 test -d "$target_root"
+git -C "$target_root" rev-parse --is-inside-work-tree >/dev/null
 
 paths=()
 while IFS= read -r path; do
@@ -47,4 +48,4 @@ for path in "${paths[@]}"; do
   esac
 done
 
-printf 'initialized %s managed files and repository supplement\n' "$((${#paths[@]} - $#))"
+printf 'initialized %s governance files\n' "${#paths[@]}"

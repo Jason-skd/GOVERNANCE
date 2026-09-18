@@ -11,8 +11,8 @@ placeholder with current repository evidence and remove unused sections.
 
 ## Technical Profile
 
-Read [`profile.md`](profile.md) for the selected seed and convert its resolved
-constraints into local action or acceptance rules here.
+Read the selected files under `docs/governance/profiles/` and convert their
+resolved constraints into local action or acceptance rules here.
 
 ## Verification
 
