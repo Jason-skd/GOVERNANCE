@@ -1,0 +1,27 @@
+name: Governance
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Verify shell syntax
+        shell: bash
+        run: find . -type f -name '*.sh' -print0 | xargs -0 bash -n
+      - name: Verify managed workflows
+        run: scripts/test-managed-governance.sh
+      - name: Verify patch whitespace
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: git diff --check "$BASE_SHA" "$HEAD_SHA"
