@@ -11,7 +11,10 @@ docs/governance/workflow.md
 .agents/skills/design-change/SKILL.md
 .agents/skills/diagnose-and-fix/SKILL.md
 .agents/skills/github-work-management/SKILL.md
+.agents/skills/github-work-management/scripts/audit-labels.sh
 .agents/skills/governance-sync/SKILL.md
+.agents/skills/governance-sync/scripts/sync.sh
 .agents/skills/pr-self-review/SKILL.md
 .agents/skills/repository-bootstrap/SKILL.md
+.agents/skills/repository-bootstrap/scripts/bootstrap.sh
 .agents/skills/resolve-review/SKILL.md

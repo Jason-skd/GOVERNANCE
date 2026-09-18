@@ -50,6 +50,14 @@ cp -R AGENTS.md .agents docs /path/to/new-repository/
 也不会让目标仓库动态继承此仓库。同步默认只报告差异；应用或远端 mutation
 仍需要对目标仓库及动作的明确授权。
 
+## 验证
+
+修改托管清单、bootstrap 或同步工作流后运行：
+
+```bash
+scripts/test-managed-governance.sh
+```
+
 ## License
 
 [MIT](LICENSE)

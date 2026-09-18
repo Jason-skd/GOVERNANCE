@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# === 校验审计参数 ===
 if (( $# != 2 )); then
   echo "usage: audit-labels.sh OWNER/REPO LABELS_YML" >&2
   exit 2
@@ -15,6 +16,7 @@ expected=$(mktemp)
 actual=$(mktemp)
 trap 'rm -f "$expected" "$actual"' EXIT
 
+# === 归一化预期标签 ===
 uv run --with pyyaml python -c '
 import json, sys, yaml
 data = yaml.safe_load(open(sys.argv[1]))
@@ -25,6 +27,7 @@ print(json.dumps(sorted(
 ' "$labels_file" > "$expected"
 gh api "repos/$repo/labels?per_page=100" > "$actual"
 
+# === 报告标签差异 ===
 uv run python -c '
 import json, sys
 expected = json.load(open(sys.argv[1]))
