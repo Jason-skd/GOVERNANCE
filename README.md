@@ -12,16 +12,23 @@
 
 ## 内容
 
-- `AGENTS.md`：权限边界、证据要求、编号语义与治理路由；
+- `AGENTS.md`：权限边界、证据要求与治理路由；
 - `docs/governance/workflow.md`：调查、Git、issue、PR 与文档流程；
 - `docs/governance/engineering.md`：工程设计与接口约束；
 - `docs/governance/verification.md`：测试与完成证据；
+- `docs/governance/meta.md`：规则身份、晋升条件与 seed/skill 分层；
+- `docs/governance/delivery.md`：PR、main、制品、部署与发布证据；
 - `docs/governance/repository.md`：目标仓库的补充规则模板；
-- `.agents/skills/`：设计、诊断、review 处理、PR 自审与跨仓库交接流程。
+- `seeds/`：可选的仓库、技术画像、GitHub 工作管理与交付初始化材料；
+- `.agents/skills/`：设计、诊断、review、初始化、同步、工作管理、交付与跨仓库交接流程；
+- `managed-files.txt`：公共基线同步所管理的文件清单。
 
 ## 复制到新仓库
 
-在本仓库根目录执行：
+使用 `repository-bootstrap` skill 先审计目标仓库，再按真实技术画像选择
+seed。初始化默认拒绝覆盖任何已有路径，也不会修改远端 GitHub。
+
+仅需复制完整公共基线到空白仓库时，可在本仓库根目录执行：
 
 ```bash
 cp -R AGENTS.md .agents docs /path/to/new-repository/
@@ -39,7 +46,9 @@ cp -R AGENTS.md .agents docs /path/to/new-repository/
 交付给用户时执行对抗式自审；checklist 使用 `- [x]`、`- [ ]`、`- [-]`
 和 `- [~]`。
 
-本仓库只提供可复制文件，不包含 submodule、生成器、同步脚本或版本清单。
+本仓库只提供可复制文件、可选 seed 与本地辅助脚本，不包含 submodule，
+也不会让目标仓库动态继承此仓库。同步默认只报告差异；应用或远端 mutation
+仍需要对目标仓库及动作的明确授权。
 
 ## License
 
