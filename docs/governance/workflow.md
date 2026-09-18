@@ -47,6 +47,16 @@ pull requests, and documentation.
 - **G007** Issues and pull requests reference relevant tracking work and state
   explicitly whether they close it. Labels and milestones are used only when
   they convey real project information.
+- **G070** Direction, deliverable, governance, and bug work item roles are
+  mutually exclusive. A work item has exactly one of these responsibilities.
+- **G071** A milestone represents a release version and contains only leaf
+  deliverables and bugs targeted to that version. Direction, governance, and
+  pull requests do not receive milestones.
+- **G072** A pull request is a delivery vehicle and uses a closing keyword such
+  as `Closes` to close each leaf work item it completes; the pull request does
+  not replace that work item.
+- **G073** Labels do not duplicate relationships, ownership, milestones, or
+  state that can be derived from the pull request lifecycle.
 
 ## Pull Request Acceptance
 

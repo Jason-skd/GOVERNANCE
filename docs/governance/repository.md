@@ -13,11 +13,6 @@ Repository rules may define:
 - issue taxonomy, release workflow, and explicit main-branch exceptions;
 - cross-repository dependency ownership and handoff topology.
 
-Action supplements use the `R-A` prefix and begin at number 001. Acceptance
-supplements use the `R-G` prefix and begin at number 001. In each family, add
-new rules at the next unused maximum, preserve IDs when rules move, and never
-reuse deleted IDs. Do not continue the common `A` or `G` sequences here.
-
 Keep action supplements for repository-specific workflows, tools, or owner
 operations. Keep acceptance supplements for repository-specific facts that a
 reviewer can verify afterward from the complete pull-request diff, commits,
@@ -25,6 +20,5 @@ tests, and recorded validation. The `pr-self-review` checklist includes every
 acceptance supplement but does not create checklist rows for action
 supplements.
 
-Project exceptions belong here before they are considered for the common
-baseline. Promote a rule to common governance only when it has demonstrated
-cross-repository value, not in response to one isolated incident.
+Rule identities, numbering, and promotion are defined in
+[`meta.md`](meta.md).
