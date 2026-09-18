@@ -1,0 +1,17 @@
+# Common files maintained by governance-sync. Repository supplements and seeds
+# are intentionally excluded.
+AGENTS.md
+docs/governance/delivery.md
+docs/governance/engineering.md
+docs/governance/meta.md
+docs/governance/verification.md
+docs/governance/workflow.md
+.agents/skills/cross-repository-escalation/SKILL.md
+.agents/skills/delivery-pipeline/SKILL.md
+.agents/skills/design-change/SKILL.md
+.agents/skills/diagnose-and-fix/SKILL.md
+.agents/skills/github-work-management/SKILL.md
+.agents/skills/governance-sync/SKILL.md
+.agents/skills/pr-self-review/SKILL.md
+.agents/skills/repository-bootstrap/SKILL.md
+.agents/skills/resolve-review/SKILL.md
