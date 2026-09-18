@@ -12,9 +12,8 @@ pull requests, and documentation.
 - **A026** Treat every independently pure documentation update—where the
   task's only requirement is changing documentation—as an emergency repair.
   Commit and push it directly to `main`; never create a `docs/` branch for it.
-- **A027** For every other change, work on a branch other than `main` and merge
-  through a pull request unless repository governance or an explicit task
-  instruction establishes a different workflow.
+- **A027** For every other change, work on a branch other than `main` and open a
+  pull request unless repository governance establishes a different workflow.
 - **A028** Rebase private work onto `main`; never rebase `main` itself.
 - **A029** Stage explicit task-owned paths and inspect the staged diff before
   committing so unrelated workspace changes remain untouched.
@@ -22,6 +21,11 @@ pull requests, and documentation.
   destructive targets with read-only checks before acting.
 - **A031** Before mutating a remote service, verify authentication, repository
   identity, target revision, and the exact resource being changed.
+- **A037** Only the user may merge pull requests. Agents do not merge pull
+  requests or enable auto-merge.
+- **A038** Preserve task-owned local worktrees, local branches, workspace
+  entries, and remote branches unless the user explicitly requests “清理环境”.
+  Opening or observing a merged pull request does not authorize cleanup.
 
 ## Commit Acceptance
 
