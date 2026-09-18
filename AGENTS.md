@@ -82,3 +82,5 @@ rules only; violations of `A` or `R-A` remain concrete review findings.
 - **A023** Use
   [`.agents/skills/cross-repository-escalation`](.agents/skills/cross-repository-escalation/SKILL.md)
   before a required change or handoff crosses repository ownership.
+- **A039** When governance rules form a reusable multi-step workflow, alert the
+  user that they are a skill candidate before creating or extending a skill.
